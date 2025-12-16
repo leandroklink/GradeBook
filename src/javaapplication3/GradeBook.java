@@ -9,10 +9,19 @@ package javaapplication3;
  * @author Leandro
  */
 public class GradeBook{
+    private String courseName;
 
-    public void displayMessage( String courseName)
+    public void setCourseName( String name){
+        courseName = name;
+    }
+    
+    public String getCourseName(){
+        return courseName;
+    }
+    
+    public void displayMessage()
     {
-        System.out.printf("Welcome to the GradeBook for %s! ", courseName);
+        System.out.printf("Welcome to the GradeBook for %s! ", getCourseName());
     }
     
 }
