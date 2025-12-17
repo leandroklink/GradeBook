@@ -32,20 +32,30 @@ public class GradeBook{
         int total; //soma das notas
         int gradeCounter; //número da nota a ser inserida a seguir
         int grade; //valor da nota inserida pelo usuário
-        int average; // média das notas
+        double average; // média das notas
         
         total = 0;
-        gradeCounter = 1;
+        gradeCounter = 0;
+        grade = 0;
         
-        while(gradeCounter <= 10)
+        while(grade != -1)
         {
-            System.out.println("Enter grade");
+
+            System.out.println("Enter grade (-1 to finish)");
             grade = input.nextInt();
-            total = total + grade;
-            gradeCounter++;
+            if (grade != -1){
+                total = total + grade; 
+                gradeCounter++;
+            }
+
     }
-        average = total/10;
-        System.out.printf("\nTotal of all 10 grades is %d\n", total);
-        System.out.printf("Class average is %d\n", average);
+        if (gradeCounter <= 0){
+            System.out.println("No notes entered!");
+        }else{
+            average = (double) total/gradeCounter;
+            System.out.printf("\nTotal of all %d grades is %d\n",gradeCounter, total);
+            System.out.printf("Class average is %.2f\n", average);
+        }
+
     } 
-}
+} 
