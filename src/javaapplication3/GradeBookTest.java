@@ -14,16 +14,11 @@ public class GradeBookTest {
         
         Scanner input = new Scanner(System.in);
         
-        GradeBook myGradeBook = new GradeBook();
+        GradeBook gradeBook1 = new GradeBook("CS101 Introductiuon to Java Promramminmg");
+        GradeBook gradeBook2 = new GradeBook("CS102 Data Sctructures in Java");
         
-        System.out.printf("Initial course name is: %s \n ",
-                myGradeBook.getCourseName());
+        System.out.printf("GradeBook1 course name is: %s \n", gradeBook1.getCourseName());
+        System.out.printf("GradeBook2 course name is: %s \n", gradeBook2.getCourseName());
         
-        System.out.println("Please enter the course name: ");
-        String theName = input.nextLine();
-        myGradeBook.setCourseName(theName);
-        System.out.println("");
-        
-        myGradeBook.displayMessage();
     }
 }
