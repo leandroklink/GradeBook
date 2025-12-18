@@ -16,8 +16,7 @@ public class GradeBookTest {
         
         myGradeBook.displayMessage();
         myGradeBook.determineClassAverage();
-        
-        
+        myGradeBook.displayGradeReport();
         
     }
 }
