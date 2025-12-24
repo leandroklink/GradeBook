@@ -1,39 +1,56 @@
 ## Iniciando os estudos em Java
 
-Hoje inicio mais um desafio de aprendizado!  
+Este repositório documenta meu processo de aprendizado da linguagem **Java**, com base no livro  
+**“Java: Como Programar” – Deitel (8ª edição)**.
 
-Estou começando a leitura do livro **“Java: Como Programar”**, de **Deitel**, **8ª edição**.  
-Ao longo desse estudo, realizarei diversos **commits** com o objetivo de registrar minha evolução, consolidar o aprendizado e praticar boas práticas com **Git e GitHub**.
-
-Este repositório funcionará como um **diário de estudos**, contendo exemplos práticos e a evolução gradual dos conceitos da linguagem Java.
+Os códigos aqui presentes são organizados por módulos e representam a **evolução prática dos conceitos**, com commits frequentes para registrar o progresso e treinar boas práticas com **Git e GitHub**.
 
 ---
 
-### Módulo 3 – Introdução a Classes e Objetos
+### Módulo 3 – Introdução a Classes, Objetos e Arrays
 
-Este código faz parte do **Módulo 3**, que aborda os conceitos iniciais de **classes e objetos** em Java.
+Este projeto implementa a classe `GradeBook`, responsável por gerenciar e analisar um conjunto de notas de alunos utilizando **arrays**.
 
-O programa implementa uma classe `GradeBook`, responsável por armazenar o nome de um curso e calcular a média de notas inseridas pelo usuário.
-
-#### Funcionalidades do programa:
-- Solicita múltiplas **notas do usuário** via terminal
-- Utiliza um **valor sentinela (`-1`)** para encerrar a entrada de dados
-- Calcula o **total das notas inseridas**
-- Calcula a **média da turma**, utilizando `double`
-- Exibe os resultados com **formatação de saída (`System.out.printf`)**
+Atualmente, o código corresponde aproximadamente à **página 238 do livro**, onde são introduzidos conceitos de processamento de coleções de dados.
 
 ---
 
-#### Conceitos praticados neste módulo:
+### Estrutura do Projeto
+
+- `GradeBook.java`  
+  Classe principal que encapsula os dados do curso e as notas dos alunos, além de conter os métodos de processamento.
+
+- `GradeBookTest.java`  
+  Classe de teste responsável por instanciar o objeto `GradeBook` e executar seus métodos.
+
+---
+
+### Funcionalidades Implementadas
+
+- Armazenamento do **nome do curso**
+- Armazenamento das **notas dos alunos em um array**
+- Cálculo da **média da turma**
+- Identificação da **menor e da maior nota**
+- Exibição de todas as notas por aluno
+- Geração de um **gráfico de barras em texto** (distribuição de notas)
+- Separação clara entre **lógica de negócio** e **classe de teste**
+
+---
+
+### Conceitos Praticados até o Momento
+
 - Criação de **classes e objetos**
-- Uso de **construtor**
-- **Encapsulamento** (atributos `private`, getters e setters)
-- Entrada de dados com `Scanner`
-- Estrutura de repetição `while`
-- Uso de **valor sentinela**
-- **Casting** de tipos (`int` para `double`)
-- Formatação de saída com `printf` (`%d`, `%s`, `%.2f`)
+- Uso de **construtores com múltiplos parâmetros**
+- **Encapsulamento** (`private`, getters e setters)
+- Uso de **arrays**
+- Laços de repetição:
+  - `for`
+  - `for-each`
+- Cálculo estatístico básico (média, mínimo e máximo)
+- Formatação de saída com `System.out.printf`
+- Organização do código em **classe de domínio** e **classe de teste**
+- Introdução à **visualização de dados em modo texto** (histograma)
 
 ---
 
-📌 Este repositório será atualizado conforme o avanço dos estudos e a implementação de novos conceitos da linguagem Java.
+📌 Este repositório continuará sendo atualizado conforme o avanço no livro e a introdução de novos conceitos da linguagem Java.
