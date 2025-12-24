@@ -12,11 +12,12 @@ public class GradeBookTest {
     
     public static void main(String[] args){
         
-        GradeBook myGradeBook = new GradeBook("CS101 Introductiuon to Java Promramminmg");
+        int[] gradesArray = {87, 19, 96, 100, 50, 22, 89, 92, 87, 76, 48, 93};
+        
+        GradeBook myGradeBook = new GradeBook("CS101 Introductiuon to Java Promramminmg", gradesArray);
         
         myGradeBook.displayMessage();
-        myGradeBook.determineClassAverage();
-        myGradeBook.displayGradeReport();
+        myGradeBook.processGrades();
         
     }
 }

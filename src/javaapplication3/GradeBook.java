@@ -8,23 +8,20 @@ import java.util.Scanner;
  *
  * @author Leandro
  */
+
+//atualmente na página 238 do livro
 public class GradeBook{
     
     private String courseName;
-    private int total;
-    private int gradeCounter;
-    private int aCount;
-    private int bCount;
-    private int cCount;
-    private int dCount;
-    private int fCount;
+    private int[] grades; //array de notas de alunos
     
-    
-    public GradeBook ( String name ){
+    //construtor de dois argumentos
+    public GradeBook ( String name, int[] gradesArray){
         courseName = name;   
+        grades = gradesArray;
     }
     public void setCourseName( String name){
-        courseName = name;
+        courseName = name; //armazena o nome do curso
     }
     
     public String getCourseName(){
@@ -33,76 +30,68 @@ public class GradeBook{
     
     public void displayMessage()
     {
-        System.out.printf("Welcome to the GradeBook for %s! ", getCourseName());
+        System.out.printf("Welcome to the GradeBook for\n%s!\n\n ", getCourseName());
     }
-    public void determineClassAverage(){
-        Scanner input = new Scanner(System.in);
+    public void processGrades(){
+        outputGrades();
+        System.out.printf("\nClass average is %.2f\n", getAverage());
         
-        double average;
-        int grade = 0; //valor da nota inserida pelo usuário
-
+        System.out.printf("\nLowest grade is %d\nHighest grade is %d\n\n",
+                getMinimum(), getMaximum());
         
-
-        
-        while(grade != -1)
-        {
-            System.out.println("Enter grade (-1 to finish)");
-            grade = input.nextInt();
-            if (grade != -1){
-                total = total + grade; 
-                gradeCounter++;
-                
-                incrementLetterGradeCounter(grade);
-            }
+        outputBarChart();
+    }
+    public int getMinimum(){
+        int lowGrade = grades[0];
+        for(int grade : grades){
+            if (grade < lowGrade)
+                lowGrade = grade;
+        }
+        return lowGrade;
+    }
+    public int getMaximum(){
+        int highGrade = grades[0];
+        for(int grade : grades)
+            if (grade > highGrade)
+                highGrade = grade;
+        return highGrade;
     }
     
-        if (gradeCounter <= 0){
-            System.out.println("No notes entered!");
-        }else{
-            average = (double) total/gradeCounter;
-            System.out.printf("\nTotal of all %d grades is %d\n",gradeCounter, total);
-            System.out.printf("Class average is %.2f\n", average);
-        }
-       
-    } 
-    private void incrementLetterGradeCounter( int grade){
-        switch (grade /10){
-            case 9:
-            case 10:
-                ++aCount;
-                break;
-            case 8:
-                ++bCount;
-                break;
-            case 7:
-                ++cCount;
-                break;
-            case 6:
-                ++dCount;
-                break;
-            default:
-                ++fCount;
-                break;  
-        }
+    public double getAverage(){
+        int total = 0;
         
+        for (int grade : grades)
+            total += grade;
+        return (double) total / grades.length;
     }
-    public void displayGradeReport(){
-        System.out.println("\nGrade Report: ");
+    public void outputBarChart(){
+        System.out.println("Grade distribution: ");
         
-        if (gradeCounter != 0){
-            double average = (double) total / gradeCounter;
-            System.out.printf("Total of the %d grades entered is %d\n", gradeCounter, total);
-            System.out.printf("Class average in %.2f\n", average);
-            System.out.printf("%s\n%s%d\n%s%d\n%s%d\n%s%d\n%s%d\n", 
-                    "Number of students who received each grade:", 
-                    "A: ", aCount,
-                    "B: ", bCount,
-                    "C: ", cCount,
-                    "D: ", dCount,
-                    "F: ", fCount);
-        }
-        else{
+        int[] frequency = new int[11];
+        
+        for (int grade : grades)
+            ++frequency[grade/10];
+        
+        for (int cont = 0; cont < frequency.length; cont++) {
+            if (cont == 10)
+                System.out.printf("%5d: ", 100);
+            else
+                System.out.printf("%02d-%02d: ",
+                cont * 10, cont * 10 + 9 );
+            
+            for (int stars = 0; stars < frequency[cont]; stars++) {
+                System.out.print("*");
+            }    
             System.out.println("");
+            
+
+        }
+    }
+    public void outputGrades(){
+        System.out.println("The grades are:\n");
+        
+        for (int student = 0; student < grades.length; student++) {
+            System.out.printf("Student %2d: %3d\n", student+1, grades[student]);
         }
     }
 } 
